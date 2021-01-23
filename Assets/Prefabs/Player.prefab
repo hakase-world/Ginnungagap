@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInformation: {fileID: 11400000, guid: 2f7be5956afc60c48bb70b1b4c3347a7, type: 2}
   target: {fileID: 8441179504870734633}
-  weaponPlace: {fileID: 0}
+  weaponPlace: {fileID: 1072650530}
 --- !u!114 &8344513527516153555
 MonoBehaviour:
   m_ObjectHideFlags: 0
