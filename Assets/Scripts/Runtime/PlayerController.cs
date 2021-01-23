@@ -6,18 +6,18 @@ namespace Game.Runtime
     {
         public PlayerInformation playerInformation;
         public Transform target;
-
+		public Transform weaponPlace;
         private CharacterController mController { get; set; }
 
-        private void Awake()
-        {
-        }
+
+		void Awake(){
+			
+		}
 
         void Start()
         {
             playerInformation.transform = target.transform;
             mController = GetComponent<CharacterController>();
-            print(mController.isTrigger);
         }
 
 
