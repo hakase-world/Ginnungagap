@@ -4,7 +4,7 @@ using UnityEngine.Playables;
 
 namespace Game.Runtime
 {
-    [RequireComponent(typeof(Animation))]
+    [RequireComponent(typeof(Animator))]
     public class SimplePlayAnimationClip : MonoBehaviour
     {
         public AnimationClip clip;
