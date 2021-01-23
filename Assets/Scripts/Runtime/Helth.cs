@@ -6,7 +6,7 @@ namespace Game.Runtime
     public class Helth : MonoBehaviour
     {
         public float maxHelth=100.0f;
-        private float _currentHelth;
+        public float _currentHelth;
 
         private void Start()
         {

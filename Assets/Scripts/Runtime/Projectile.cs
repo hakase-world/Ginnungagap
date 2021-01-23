@@ -10,7 +10,7 @@ namespace Game.Runtime
 		public float speed = 1f;
 		public float damage = 1f;
 
-		public Action onTrrigerCallback { get; set;}
+		public Action onTrrigerCallback { get; set; }
 
 		private Vector3 _velocity;
 		private GameObject _owner;
@@ -40,17 +40,20 @@ namespace Game.Runtime
 		/// <param name="other">衝突したコライダーの参照です</param>
 		private void OnTriggerEnter(Collider other)
 		{
-			//衝突したオブジェクトのタグがPlayerだったとき、弾を発射したコンポーネントから登録されているイベントをすべて実行します。
-			if (other.CompareTag("Player"))
-				onTrrigerCallback.Invoke();
 
-			
+
+
 			Helth helth = other.GetComponent<Helth>();
+			helth.TakeDamage(damage);
+
 			if (helth)
 			{
 				helth.TakeDamage(damage);
 			}
 
+			//衝突したオブジェクトのタグがPlayerだったとき、弾を発射したコンポーネントから登録されているイベントをすべて実行します。
+			if (other.CompareTag("Player"))
+				onTrrigerCallback.Invoke();
 		}
 
 	}
