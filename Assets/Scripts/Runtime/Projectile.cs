@@ -12,7 +12,7 @@ namespace Game.Runtime
 
 		public Action onTrrigerCallback { get; set; }
 
-		private Vector3 _velocity;
+		private Vector3 _velocity = Vector3.forward;
 		private GameObject _owner;
 
 		private void Update()
@@ -38,11 +38,9 @@ namespace Game.Runtime
 		/// 弾が何らかのコライダーに衝突したときのイベントです。
 		/// </summary>
 		/// <param name="other">衝突したコライダーの参照です</param>
+		/*
 		private void OnTriggerEnter(Collider other)
 		{
-
-
-
 			Helth helth = other.GetComponent<Helth>();
 			helth.TakeDamage(damage);
 
@@ -55,6 +53,6 @@ namespace Game.Runtime
 			if (other.CompareTag("Player"))
 				onTrrigerCallback.Invoke();
 		}
-
+		*/
 	}
 }
