@@ -131,11 +131,35 @@ MonoBehaviour:
     m_ActionId: ca8c4201-824b-4d27-8a6f-cbeaa881ce45
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1662694647540745120}
+        m_TargetAssemblyTypeName: Game.Runtime.PlayerController, Game.Runtime
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: aea80a38-64c7-4010-bfa9-2841cfd5273d
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3570288168150119021}
+        m_TargetAssemblyTypeName: Game.WeaponManager, Game.Runtime
+        m_MethodName: OnFire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 5e618938-086e-4c82-b3fa-15cc3437b98c
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -179,19 +203,7 @@ MonoBehaviour:
     m_ActionId: 953b2d14-d2a9-471a-8adc-ed7d31179572
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1662694647540745120}
-        m_TargetAssemblyTypeName: Game.Runtime.PlayerController, Game.Runtime
-        m_MethodName: OnAim
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 3f356fcc-7ec9-4ca4-91aa-62dacaec3d7e
     m_ActionName: Player/Aim[/Mouse/position]
   - m_PersistentCalls:
@@ -564,3 +576,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8687700694382845640, guid: fe13e3ac1e26e3d48bcffd399cc9b242, type: 3}
   m_PrefabInstance: {fileID: 8687700695068297194}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3570288168150119021 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5268331871173604743, guid: fe13e3ac1e26e3d48bcffd399cc9b242, type: 3}
+  m_PrefabInstance: {fileID: 8687700695068297194}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8eef7a3bfdc584faaad07df699ff62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -37,7 +37,8 @@ namespace Game.Runtime
 
 		public void OnLook(InputAction.CallbackContext context)
 		{
-			_screenPoint += context.ReadValue<Vector2>();
+			_screenPoint = context.ReadValue<Vector2>();
+
 			print(_screenPoint);
 		}
 
