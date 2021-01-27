@@ -35,6 +35,12 @@ namespace Game.Runtime
 			_jumpPressed = context.ReadValueAsButton();
 		}
 
+		public void OnLook(InputAction.CallbackContext context)
+		{
+			_screenPoint += context.ReadValue<Vector2>();
+			print(_screenPoint);
+		}
+
 		public void OnAim(InputAction.CallbackContext context)
 		{
 			_screenPoint = context.ReadValue<Vector2>();
