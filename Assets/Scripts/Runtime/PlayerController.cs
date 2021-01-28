@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 namespace Game.Runtime
 {
 	public class PlayerController : MonoBehaviour
@@ -16,13 +17,16 @@ namespace Game.Runtime
 
 		[Header("ジャンプの高さ")]
 		public float jumpHeight = 2;
+		[Header("クロスヘアの移動速度")]
+		public float lookSpeed = 5;
 
 		private CharacterController controller { get; set; }
 		Vector3 velocity; // 移動量
 
 		Vector2 _move;                // 移動方向の入力
+		Vector2 _look;                // クロスヘアの移動方向の入力
 		private bool _jumpPressed;    // ジャンプの入力の有無
-		private Vector2 _screenPoint; // 射撃の位置
+		private Vector2 _aimPoint=new Vector2(0.5f,0.5f); // 射撃の位置
 
 		public void OnMove(InputAction.CallbackContext context)
 		{
@@ -37,20 +41,21 @@ namespace Game.Runtime
 
 		public void OnLook(InputAction.CallbackContext context)
 		{
-			_screenPoint = context.ReadValue<Vector2>();
+			_look = context.ReadValue<Vector2>();
 
-			print(_screenPoint);
+			print(_aimPoint);
 		}
 
 		public void OnAim(InputAction.CallbackContext context)
 		{
-			_screenPoint = context.ReadValue<Vector2>();
+			_aimPoint = context.ReadValue<Vector2>();
 		}
 
 		void Start()
 		{
 			playerInformation.transform = target.transform;
 			controller = GetComponent<CharacterController>();
+			Cursor.visible = false;
 		}
 
 		void Update()
@@ -68,8 +73,12 @@ namespace Game.Runtime
 			velocity.y += gravity * Time.deltaTime;
 			controller.Move(velocity * Time.deltaTime);
 
-			// マウスカーソルなどのポインターデバイスのカメラのスクリーン座標の中の位置からレイを作成しています。
-			Ray pointer = Camera.main.ScreenPointToRay(_screenPoint);
+			// 狙う位置の移動
+			_aimPoint += _look * Time.deltaTime * lookSpeed;
+			_aimPoint.x = Mathf.Clamp(_aimPoint.x, 0f, 1f);
+			_aimPoint.y = Mathf.Clamp(_aimPoint.y, 0f, 1f);
+			// レイを作成。
+			Ray pointer = Camera.main.ViewportPointToRay(_aimPoint);
 			// 狙いを定める位置を可能な限り遠くにしたいのでint型の最大値を乗算しています。
 			Vector3 target = pointer.direction * 9223372036854775807;
 			// 武器を所持する親オブジェクトの向きを狙っている位置に向きを変えています。
